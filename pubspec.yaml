@@ -38,6 +38,9 @@ dependencies:
   provider: ^6.0.5
   webview_flutter: ^4.0.7
   google_fonts: ^4.0.3
+  google_nav_bar: ^5.0.6
+  circular_reveal_animation: ^2.0.1
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +72,7 @@ flutter:
     - assets/edu/
     - assets/food/
     - assets/ott/
+    - assets/shop/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
