@@ -59,7 +59,10 @@ class _OttscreenState extends State<Ottscreen> {
                     SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                     ),
-                    itemBuilder: (context, index) => boxUI(homeproviderFalse.ottImg[index]),
+                    itemBuilder: (context, index) => InkWell(onTap: () {
+                      homeproviderFalse.loadOTTWebsite(index);
+                      Navigator.pushNamed(context, 'open');
+                    },child: boxUI(homeproviderFalse.ottImg[index])),
                     itemCount: 4,
                   ),),
                 SizedBox(height: 20,),
@@ -72,10 +75,9 @@ class _OttscreenState extends State<Ottscreen> {
                     letterSpacing: 1,
                   ),
                 ),
-                SizedBox(height: 10,),
                 TextLiquidFill(
                   textAlign: TextAlign.left,
-                  boxWidth: 180,
+                  boxWidth: 170,
                   loadDuration: Duration(seconds: 3),
                   text: 'Content !',
                   waveColor: Colors.deepOrange,
@@ -102,6 +104,8 @@ class _OttscreenState extends State<Ottscreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: Colors.black,width: 1.5)
+
       ),
       child: ClipRRect(borderRadius: BorderRadius.circular(30),child: Image.asset("$imgPath",fit: BoxFit.cover,)),
     );

@@ -32,7 +32,7 @@ class _HomescreenState extends State<Homescreen> {
           backgroundColor: Colors.grey.shade100,
           elevation: 0,
           leading:
-          Icon(Icons.all_inclusive, color: Colors.deepOrange, size: 35),
+          Icon(Icons.menu, color: Colors.black, size: 35),
           title: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[

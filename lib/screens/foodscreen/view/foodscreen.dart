@@ -61,7 +61,10 @@ class _FoodscreenState extends State<Foodscreen> {
                   SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                   ),
-                  itemBuilder: (context, index) => boxUI(homeproviderFalse.foodImg[index]),
+                  itemBuilder: (context, index) => InkWell(onTap: () {
+                    homeproviderFalse.loadFoodWebsite(index);
+                    Navigator.pushNamed(context, 'open');
+                  },child: boxUI(homeproviderFalse.foodImg[index])),
                   itemCount: 4,
                 ),),
               SizedBox(height: 20,),
@@ -74,10 +77,9 @@ class _FoodscreenState extends State<Foodscreen> {
                   letterSpacing: 1,
                 ),
               ),
-              SizedBox(height: 10,),
               TextLiquidFill(
                 textAlign: TextAlign.left,
-                boxWidth: 170,
+                boxWidth: 130,
                 loadDuration: Duration(seconds: 3),
                 text: 'Foody !',
                 waveColor: Colors.deepOrange,
@@ -87,7 +89,7 @@ class _FoodscreenState extends State<Foodscreen> {
                   fontSize: 30,
                   fontWeight: FontWeight.w600,
                 ),
-                boxHeight: 80.0,
+                boxHeight: 70.0,
               ),
             ],
           ),
@@ -104,6 +106,8 @@ class _FoodscreenState extends State<Foodscreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: Colors.black,width: 1.5)
+
       ),
       child: ClipRRect(borderRadius: BorderRadius.circular(30),child: Image.asset("$imgPath")),
     );

@@ -58,7 +58,10 @@ class _ShopscreenState extends State<Shopscreen> {
                     SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                     ),
-                    itemBuilder: (context, index) => boxUI(homeproviderFalse.shopImg[index],),
+                    itemBuilder: (context, index) => InkWell(onTap: () {
+                      homeproviderFalse.loadShopWebsite(index);
+                      Navigator.pushNamed(context, 'open');
+                    },child: boxUI(homeproviderFalse.shopImg[index],)),
                     itemCount: 4,
                   ),),
                 SizedBox(height: 20,),
@@ -71,7 +74,7 @@ class _ShopscreenState extends State<Shopscreen> {
                     letterSpacing: 1,
                   ),
                 ),
-                SizedBox(height: 10,),
+
                 TextLiquidFill(
                   textAlign: TextAlign.left,
                   boxWidth: 100,
@@ -101,6 +104,8 @@ class _ShopscreenState extends State<Shopscreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: Colors.black,width: 1.5)
+
       ),
       child: ClipRRect(borderRadius: BorderRadius.circular(30),child: Image.asset("$imgPath",fit: BoxFit.cover,)),
     );

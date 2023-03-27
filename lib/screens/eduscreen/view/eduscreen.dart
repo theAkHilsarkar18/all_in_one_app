@@ -33,25 +33,24 @@ class _EduscreenState extends State<Eduscreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 10,),
                 Text(
-                  "Wel come",
+                  "Good Morning",
                   style: GoogleFonts.raleway(
                     color: Colors.black,
                     fontSize: 30,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     letterSpacing: 1,
                   ),
                 ),
                 Text(
-                  "akhil Sarkar..",
-                  style: GoogleFonts.poppins(
-                    color: Colors.deepOrange,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 1,
-                  ),
+                  "Akhil !",
+                  style: GoogleFonts.rubik(
+                      color: Colors.deepOrange,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1),
                 ),
-
                 SizedBox(
                   height: 30,
                 ),
@@ -64,7 +63,10 @@ class _EduscreenState extends State<Eduscreen> {
                       crossAxisCount: 2,
                     ),
                     itemBuilder: (context, index) =>
-                        boxUI(homeproviderFalse!.eduImg[index]),
+                        InkWell(onTap: () {
+                          homeproviderFalse!.loadEduWebsite(index);
+                          Navigator.pushNamed(context, 'open');
+                        },child: boxUI(homeproviderFalse!.eduImg[index],),),
                     itemCount: 4,
                   ),
                 ),
